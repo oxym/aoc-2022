@@ -1,3 +1,6 @@
+;; reduce f a = f (a[1]) (reduce f (a[1:]))
+;; where f: <a b> => a
+
 (def detect-len 14)
 (defn all-different [chrs] (
                             if (= (count chrs) 2)
@@ -6,7 +9,6 @@
                              (all-different (drop 1 chrs))
                              (every? #(not= (first chrs) %) (drop 1 chrs)))))
 
-;; (def input "mjqjpqmgbljsphdztnvjfqwrcgsmlb")
 (def input (slurp "input.txt"))
 (def s (seq input))
 
@@ -18,5 +20,3 @@
                     (drop detect-len s)))
 
 (print result)
-;; reduce f a = f (a[1]) (reduce f (a[1:]))
-;; where f: <a b> => a
