@@ -8,6 +8,4 @@
 
 (def sum (map (comp sum-calories get-calories) elves))
 (def top3 (take 3 (sort (comp - compare) (doall sum))))
-(println (reduce + top3))
-
-;; (println (reduce max sum))
+(print (reduce + top3))
